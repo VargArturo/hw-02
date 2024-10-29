@@ -24,24 +24,43 @@ run17 %>%
   filter(event == "10 Mile") %>%
   ggplot(mapping = aes(x = age)) +
     geom_histogram(binwidth = 2)
+
+run17 %>%
+  filter(event == "10 Mile") %>%
+  summarize(
+    mean_age = mean(age, na.rm = TRUE),
+    median_age = median(age, na.rm = TRUE),
+    min_age = min(age, na.rm = TRUE),
+    max_age = max(age, na.rm = TRUE)
+  )
 ```
 
 
-_Write your text to answer exercise 1a here (Please delete this message before submission!)_
+_The shape of the histogram skews towards the right with a peak in the age range 20-40 which suggests that the mean and median ages will be within this range. The histogram shows that ages range from early 10s to the  late 80s_
 
 
 ```{r ex1b, out.width="80%"}
 # Write your code for Ex1b here
 
+run17 %>%
+  filter(event == "5K") %>%
+  ggplot(mapping = aes(x = age)) +
+    geom_histogram(binwidth = 2)
 
-
-
+run17 %>%
+  filter(event == "5K") %>%
+  summarize(
+    mean_age = mean(age, na.rm = TRUE),
+    median_age = median(age, na.rm = TRUE),
+    min_age = min(age, na.rm = TRUE),
+    max_age = max(age, na.rm = TRUE)
+  )
 
 ```
 
 
-_Write your text to answer exercise 1b here (Please delete this message before submission!)_
 
+_The shape of the histogram skews towards the right with a peak in the age range 25-30 which suggests that the mean and median ages will be within this range. The histogram shows that ages range from early 10s to the  late 75s. When comparing the two histograms the mean_ages are similar for 10k we have 37 and for 5k we have 38, in addition to this the range of ages are also similar as the 10k dataset is between {11-85} and the 5k dataset is between {6-92} and the medians also are similar with the 10k dataset being 35 and 5k dataset being 36. _
 
 ## Exercise 2
 
