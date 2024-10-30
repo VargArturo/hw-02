@@ -67,12 +67,23 @@ _The shape of the histogram skews towards the right with a peak in the age range
 ```{r ex2, out.width = "80%"}
 # Write your code to answer exercise 2a here
 
-
-
+run17 %>%
+  ggplot(mapping= aes(
+           x = sex ,
+           y = net_sec,
+           fill = sex
+         )) +
+    geom_boxplot() +
+    labs(
+      x= "Gender of the runner",
+      y= "Time to complete the race",
+      title = "race times"
+    )+
+  facet_wrap(~ event, scales = "free_y")
 
 ```
 
-_Write your text to answer exercise 2b here (Please delete this message before submission!)_
+_From the visualization we can see that for both the 10 mile event and 5k event the for females and males have similar IQR meaning the data is spread similarly for both sexes, however the median values for the female times are greater thus on average men finish faster._
 
 
 
@@ -81,8 +92,9 @@ _Write your text to answer exercise 2b here (Please delete this message before s
 
 ```{r ex3, out.width = "80%"}
 # Write your code to answer exercise 3 here
-
-
+ggplot(data = run17 %>% filter(event == "10 Mile"), 
+       mapping = aes(x = clock_sec - net_sec)) + 
+  geom_histogram(binwidth = 10)
 
 
 
