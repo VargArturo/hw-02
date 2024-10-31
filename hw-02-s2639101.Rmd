@@ -68,9 +68,10 @@ _The shape of the histogram skews towards the right with a peak in the age range
 # Write your code to answer exercise 2a here
 
 run17 %>%
+  mutate(tm = net_sec/60) %>%
   ggplot(mapping= aes(
            x = sex ,
-           y = net_sec,
+           y = tm,
            fill = sex
          )) +
     geom_boxplot() +
@@ -97,7 +98,35 @@ ggplot(data = run17 %>% filter(event == "10 Mile"),
   geom_histogram(binwidth = 10)
 
 
+first_wave <- run17 %>%
+  filter(event == "10 Mile") %>%
+  mutate(runners_per_wave = clock_sec - net_sec) %>%
+  filter(runners_per_wave %in% (0:74))
 
+run17 %>%
+  filter(event == "10 Mile") %>%
+  mutate(runners_per_wave = clock_sec - net_sec,
+         waves = case_when(
+           runners_per_wave %in% 0:74 ~ "First Wave",
+           runners_per_wave %in% 1403:1792 ~ "Last Wave"
+         )) %>%
+  filter(waves == "First Wave"| waves == "Last Wave") %>%
+  filter(!is.na(waves)) %>%
+  ggplot(aes(x = age, y = net_sec / 60, color = waves)) +
+  geom_point(alpha = 0.5, size = 1) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = c("First Wave" = "orange", "Last Wave" = "forestgreen")) +
+  theme_bw() + 
+  labs(title = "Scatter Plot of 10 Mile Race, Time Against Age",
+       subtitle = "First vs Last Wave",
+       x = "Runner's Age, in years",
+       y = "Race Time, in minutes",
+       color = NULL) +
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+  ) +
+  coord_fixed(ratio = 0.5)
 ```
 
 
