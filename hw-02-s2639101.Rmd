@@ -139,18 +139,17 @@ run17 %>%
 
 ```{r ex4_good_viz, echo = FALSE, out.width = "80%"}
 # edit the file path accordingly
-knitr::include_graphics("img/good_viz.png")
+knitr::include_graphics("img/good_viz1.png")
 ```
 
-_Edit the text below by replacing the bold text with the appropriate information to provide a reference for your image (Please delete this message before submission!)_
 
-**Author/Organisation**, "**Title of website**" [Online]. Available at: **URL** (Accessed: **day month year**)
+**who**, "**who**" [Online]. Available at: **https://www.who.int/emergencies/disease-outbreak-news/item/2022-DON427** (Accessed: **31 10 2024**)
 
 
 The above image presents a good data visualisation because:
 
--   _Reason 1_
--   _Reason 2_
+-   Distinct colours for different data
+-   Chooses the correct graph for the data; line for data that has a trend and barchart for data without a trend
 
 
 #### Example of a bad data visualisation
@@ -158,18 +157,18 @@ The above image presents a good data visualisation because:
 
 ```{r ex4_bad_viz, echo = FALSE, out.width = "80%"}
 # edit the file path accordingly
-knitr::include_graphics("img/bad_viz.png")
+knitr::include_graphics("img/bad_viz1.png")
 ```
 
-_Edit the text below by replacing the bold text with the appropriate information to provide a reference for your image (Please delete this message before submission!)_
 
-**Author/Organisation**, "**Title of website**" [Online]. Available at: **URL** (Accessed: **day month year**)
 
+
+**WTFViz**, "**viz**" [Online]. Available at: **https://viz.wtf/** (Accessed: **31 10 2024**)
 
 
 The above image presents a bad data visualisation because:
 
--   _Reason 1_
--   _Reason 2_
+-   Non-distinct colours are a terrible choice for representing categorical data  
+-   Illegible lables that overlap for the percentages of each section of pie chart
 
 
